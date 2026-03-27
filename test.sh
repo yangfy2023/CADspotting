@@ -4,7 +4,7 @@ set -euo pipefail
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$PROJECT_ROOT"
 
-CONDA_ENV_NAME="${CONDA_ENV_NAME:-new_oneformer3d}"
+CONDA_ENV_NAME="${CONDA_ENV_NAME:-cadspotting}"
 CONFIG="${CONFIG:-configs/test_cfg/aaai_nocolor_1024_test_mixedpooling.py}"
 CHECKPOINT="${CHECKPOINT:-checkpoints/mixedpooling_best.pth}"
 WORK_DIR="${WORK_DIR:-./work_dirs/smoke_test_public}"

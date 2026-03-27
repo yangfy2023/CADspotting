@@ -4,7 +4,7 @@ set -euo pipefail
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$PROJECT_ROOT"
 
-CONDA_ENV_NAME="${CONDA_ENV_NAME:-new_oneformer3d}"
+CONDA_ENV_NAME="${CONDA_ENV_NAME:-cadspotting}"
 CUDA_HOME="${CUDA_HOME:-/usr/local/cuda}"
 CONFIG_NAME="${CONFIG_NAME:-aaai_nocolor_1024_nopooling}"
 CONFIG="${CONFIG:-configs/${CONFIG_NAME}.py}"

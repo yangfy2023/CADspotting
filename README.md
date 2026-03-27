@@ -19,8 +19,8 @@ cd "$PROJECT_ROOT"
 Follow [INSTALL.md](INSTALL.md) to set up the environment:
 
 ```bash
-conda create -n oneformer3d python=3.10
-conda activate oneformer3d
+conda create -n cadspotting python=3.10
+conda activate cadspotting
 # ... (see INSTALL.md for full steps)
 ```
 
@@ -33,15 +33,14 @@ bash download_public_ckpt.sh
 ### 3. Run Inference on Sample Data
 
 ```bash
-CONDA_ENV_NAME=oneformer3d bash test.sh
+CONDA_ENV_NAME=cadspotting bash test.sh
 ```
 
-This runs inference on the public smoke sample in `data/smoke/`.
 
 ## Repository Structure
 
 ```
-├── oneformer3d/          # Core model code
+├── cadspotting/          # Core model code
 ├── configs/              # Training and evaluation configs
 ├── tools/                # Data processing and training scripts
 ├── data/
@@ -77,7 +76,7 @@ See [tools/readme.md](tools/readme.md) for detailed documentation.
 ### Training
 
 ```bash
-CONDA_ENV_NAME=oneformer3d bash train_dist.sh
+CONDA_ENV_NAME=cadspotting bash train_dist.sh
 ```
 
 ### Evaluation
