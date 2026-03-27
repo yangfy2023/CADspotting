@@ -1,0 +1,42 @@
+# Core runtime
+torch
+torchvision
+torchaudio
+mmengine
+mmcv
+mmdet
+mmdet3d
+spconv-cu121
+torch_scatter
+flash_attn
+
+# Core Python libs
+numpy
+scipy
+numba
+PyYAML
+addict
+tqdm
+terminaltables
+einops
+timm
+psutil
+
+# Visualization and analysis
+opencv-python
+Pillow
+matplotlib
+pandas
+trimesh
+pycocotools
+
+# Preprocess / SVG / document conversion
+svgpathtools
+svglib
+reportlab
+lxml
+cairosvg
+
+# Optional CUDA extensions for alternate model paths
+# MinkowskiEngine
+# pointops

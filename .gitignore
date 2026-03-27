@@ -1,0 +1,15 @@
+# Local training outputs
+work_dirs/
+data/*
+# Large local checkpoints
+checkpoints/*.pth
+
+# Full local datasets that are not part of the public release
+data/newfloorplan/
+data/floorplan_color/test_color/npz_gt/
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.swp
