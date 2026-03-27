@@ -1,13 +1,11 @@
-# OneFormer3D
-
-OneFormer3D is a unified 3D scene understanding framework for floorplan analysis. This repository contains the official implementation with training and evaluation code.
+# Cadspotting: Robust panoptic symbol spotting on large-scale cad drawings
 
 ## Overview
 
 - **Model**: Unified 3D panoptic segmentation and instance detection
 - **Dataset**: Floorplan dataset with semantic and instance annotations
 - **Framework**: Built on MMDet3D with PTv3 backbone
-- **Public Checkpoint**: `best_pq_epoch_1024.pth` available for download
+- **Public Checkpoint**: `best.pth` available for download
 
 ## Quick Start
 
