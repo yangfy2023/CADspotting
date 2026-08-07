@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="CADSpotting is a primitive-agnostic framework for robust panoptic symbol spotting on large-scale architectural CAD drawings.">
+  <meta name="keywords"
+    content="CADSpotting, panoptic symbol spotting, architectural CAD, dense point sampling, point cloud, LS-CAD">
+
+  <link rel="canonical" href="https://yangfy2023.github.io/CADspotting/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CADSpotting">
+  <meta property="og:title" content="CADSpotting: Robust Panoptic Symbol Spotting on Large-Scale CAD Drawings">
+  <meta property="og:description"
+    content="Primitive-agnostic, coordinate-only panoptic symbol spotting for large-scale architectural CAD drawings.">
+  <meta property="og:url" content="https://yangfy2023.github.io/CADspotting/">
+  <meta property="og:image"
+    content="https://yangfy2023.github.io/CADspotting/static/images/teaser_1115_0.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CADSpotting: Robust Panoptic Symbol Spotting on Large-Scale CAD Drawings">
+  <meta name="twitter:description"
+    content="Primitive-agnostic, coordinate-only panoptic symbol spotting for large-scale architectural CAD drawings.">
+  <meta name="twitter:image"
+    content="https://yangfy2023.github.io/CADspotting/static/images/teaser_1115_0.jpg">
+
+  <title>CADSpotting: Robust Panoptic Symbol Spotting on Large-Scale CAD Drawings</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+</head>
+
+<body>
+  <main>
+    <section class="hero publication-header">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="has-text-centered">
+            <h1 class="title is-1 publication-title">
+              CADSpotting: Robust Panoptic Symbol Spotting on Large-Scale CAD Drawings
+            </h1>
+
+            <div class="is-size-5 publication-authors" aria-label="Authors">
+              <span class="author-block">Fuyi Yang<sup>1,2</sup>,</span>
+              <span class="author-block">Jiazuo Mu<sup>1</sup>,</span>
+              <span class="author-block">Mingqian Zhang<sup>1,2</sup>,</span>
+              <span class="author-block">Yanshun Zhang<sup>2</sup>,</span>
+              <span class="author-block">Junxiong Zhang<sup>1,2</sup>,</span>
+              <span class="author-block">Lan Xu<sup>*,1</sup>,</span>
+              <span class="author-block">Yingliang Zhang<sup>*,2</sup></span>
+            </div>
+
+            <div class="is-size-5 publication-affiliations">
+              <span class="author-block"><sup>1</sup>ShanghaiTech University</span>
+              <span class="author-block"><sup>2</sup>DGene Digital Technology</span>
+              <span class="corresponding-note"><sup>*</sup>Corresponding authors</span>
+            </div>
+
+            <div class="publication-links" aria-label="Publication links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2412.07377" target="_blank" rel="noopener noreferrer"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2412.07377" target="_blank" rel="noopener noreferrer"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv" aria-hidden="true"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/yangfy2023/CADspotting" target="_blank" rel="noopener noreferrer"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section teaser-section">
+      <div class="container is-max-desktop">
+        <figure class="publication-figure">
+          <img src="static/images/teaser_1115_0.jpg"
+            alt="CADSpotting segments architectural CAD symbols and supports automated 3D interior reconstruction.">
+          <figcaption>
+            CADSpotting accurately identifies and segments symbols in CAD drawings. Dense point sampling and sliding
+            window aggregation enable robust panoptic symbol spotting on large-scale drawings, while the resulting
+            semantic information supports automated parametric reconstruction of architectural 3D interiors.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="abstract">
+      <div class="container is-max-desktop content publication-copy">
+        <h2 class="title is-3">Abstract</h2>
+        <p>
+          We introduce CADSpotting, an effective method for panoptic symbol spotting in large-scale architectural CAD
+          drawings. Existing approaches often struggle with symbol diversity, scale variations, and overlapping
+          elements in CAD designs, and typically rely on additional features (e.g., primitive types or graphical
+          layers) to improve performance. CADSpotting addresses these challenges with a primitive-agnostic,
+          coordinate-only dense sampling representation: each CAD primitive is converted into densely sampled 2D
+          points embedded in 3D with <em>z</em> = 0, and a point-cloud backbone learns features without explicit
+          primitive-type or layer attributes. To enable accurate segmentation in large drawings, we further use
+          sliding window aggregation (SWA), which combines weighted voting and sparse non-maximum suppression (NMS) to
+          merge local predictions across overlapping windows. Moreover, we introduce LS-CAD, a large-scale dataset
+          comprising 45 finely annotated complete floorplans, each covering approximately 1,000 m<sup>2</sup> or more.
+          LS-CAD complements existing large-quantity CAD datasets by focusing on physically extensive real-world
+          layouts with thousands to tens of thousands of primitives per drawing. Experiments on FloorPlanCAD and
+          LS-CAD demonstrate that CADSpotting achieves strong performance compared to existing methods. We also
+          showcase its practical value in enabling automated parametric 3D interior reconstruction directly from raw
+          CAD inputs.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="method">
+      <div class="container is-max-desktop content publication-copy">
+        <h2 class="title is-3">Pipeline Overview</h2>
+        <figure class="publication-figure">
+          <img src="static/images/pipeline.png"
+            alt="The CADSpotting pipeline: dense point sampling, PTv3 feature extraction, primitive pooling, and panoptic prediction.">
+          <figcaption>
+            Given a CAD drawing, CADSpotting densely samples points along graphic primitives to construct a point-cloud
+            representation using spatial coordinates only. PTv3 extracts geometric features, primitive mixed pooling
+            aggregates point features, and a streamlined Transformer decoder performs panoptic symbol spotting.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="floorplancad-results">
+      <div class="container is-max-desktop content publication-copy">
+        <h2 class="title is-3">FloorPlanCAD Results</h2>
+        <figure class="publication-figure">
+          <img src="static/images/Instance_1114_1.jpg"
+            alt="Qualitative comparison of CADSpotting and prior methods on FloorPlanCAD.">
+          <figcaption>
+            CADSpotting produces accurate panoptic symbol spotting in challenging scenes containing walls, complex or
+            overlapping symbols, and uncommon furniture symbols. It achieves the best F1 and weighted F1 scores for
+            semantic spotting, and the best AP75 and mAP for instance spotting among the compared methods.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="ls-cad">
+      <div class="container is-max-desktop content publication-copy">
+        <h2 class="title is-3">LS-CAD and Large-Scale Results</h2>
+        <p>
+          LS-CAD contains 45 complete floorplans from extensive buildings such as campuses and office complexes. Each
+          drawing covers at least 1,000 m<sup>2</sup>, with representative samples containing approximately 2,900 to
+          more than 28,000 primitives. The dataset follows the fine-grained FloorPlanCAD annotation standard and is
+          available from the corresponding author upon reasonable request.
+        </p>
+
+        <figure class="publication-figure result-figure">
+          <img src="static/images/largescale_1115_0.jpg"
+            alt="Semantic and panoptic CADSpotting results on a large-scale LS-CAD office drawing.">
+          <figcaption>
+            Semantic and panoptic spotting using SWA on a large-scale LS-CAD office drawing with 28,193 primitives and
+            1,185 instances. The side panels show close-up comparisons between ground truth and predictions.
+          </figcaption>
+        </figure>
+
+        <figure class="publication-figure result-figure">
+          <img src="static/images/LS-CAD_BP_SWA_comparison.png"
+            alt="Comparison of ground truth, CADSpotting with SWA, CADSpotting with block partitioning, and SymPoint-V2 with block partitioning.">
+          <figcaption>
+            Comparison on a large-scale LS-CAD office drawing: ground truth, CADSpotting with SWA, CADSpotting with
+            block partitioning (BP), and SymPoint-V2 with BP. CADSpotting with SWA reaches 75.5 PQ, 93.3 RQ, 93.5 F1,
+            and 57.5 mAP on LS-CAD.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="reconstruction">
+      <div class="container is-max-desktop content publication-copy">
+        <h2 class="title is-3">Automated 3D Interior Reconstruction</h2>
+        <div class="reconstruction-grid" aria-label="Automated reconstruction stages">
+          <figure>
+            <img src="static/images/house002_raw_v1.png" alt="Raw architectural CAD input.">
+            <figcaption>Raw CAD input</figcaption>
+          </figure>
+          <figure>
+            <img src="static/images/house002_pred_2_v1.png" alt="Semantic and instance prediction from CADSpotting.">
+            <figcaption>CADSpotting prediction</figcaption>
+          </figure>
+          <figure>
+            <img src="static/images/house002_pred_v12.png" alt="Automatically reconstructed 3D interior model.">
+            <figcaption>Automated reconstruction</figcaption>
+          </figure>
+        </div>
+        <p>
+          CADSpotting's instance-level segmentation and primitive positions provide spatial parameters for walls,
+          doors, and windows. Door positions, orientations, and pivot points are recovered from geometric relationships
+          between arcs and lines; window positions are derived from their instances; and wall contours are extracted
+          from closed polygons formed by adjacent wall primitives. These parameters drive a Blender-based parametric
+          reconstruction pipeline that uses reusable wall, door, and window assets to generate structurally accurate 3D
+          interiors from raw CAD inputs within minutes.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="bibtex">
+      <div class="container is-max-desktop content publication-copy">
+        <h2 class="title is-3">BibTeX</h2>
+        <pre><code>@article{yang2024cadspotting,
+  title   = {CADSpotting: Robust Panoptic Symbol Spotting on Large-Scale CAD Drawings},
+  author  = {Yang, Fuyi and Mu, Jiazuo and Zhang, Mingqian and Zhang, Yanshun and
+             Zhang, Junxiong and Xu, Lan and Zhang, Yingliang},
+  journal = {arXiv preprint arXiv:2412.07377},
+  year    = {2024}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container is-max-desktop">
+      <div class="content has-text-centered">
+        <p>
+          This website is based on the
+          <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank"
+            rel="noopener noreferrer">Academic Project Page Template</a>, adopted from the
+          <a href="https://nerfies.github.io" target="_blank" rel="noopener noreferrer">Nerfies</a> project page.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
